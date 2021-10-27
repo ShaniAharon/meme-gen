@@ -12,24 +12,29 @@
       <h1>my Memes</h1>
     </header>
 
-    <main></main>
+    <main>
+      <section class="meme-editor">
+        <canvas class="my-canvas" width="300px" height="300px"></canvas>
+        <div class="line-controls">
+          <input
+            oninput="onUpdateText(this.value)"
+            class="insert-text"
+            type="text"
+            placeholder="Enter text"
+          />
+          <button onclick="onIncreaseSize(1)">bigger</button>
+          <button onclick="onDecreaseSize(-1)">smaller</button>
+          <button onclick="onMoveUp(-1)">Up</button>
+          <button onclick="onMoveDown(1)">Down</button>
+          <button onclick="onSwitchLine()">Switch Line</button>
+        </div>
+      </section>
 
-    <section>
-      <canvas class="my-canvas" width="300px" height="300px"></canvas>
-      <input
-        oninput="onUpdateText(this.value)"
-        class="insert-text"
-        type="text"
-        placeholder="Enter text"
-      />
-      <button onclick="onIncreaseSize(1)">bigger</button>
-      <button onclick="onDecreaseSize(-1)">smaller</button>
-      <button onclick="onMoveUp(-1)">Up</button>
-      <button onclick="onMoveDown(1)">Down</button>
-      <button onclick="onSwitchLine()">Switch Line</button>
-    </section>
-
-    <section class="image-gallery"></section>
+      <section class="image-gallery"></section>
+    </main>
+    <footer>
+      <p>all rights reserevd shani aharon</p>
+    </footer>
 
     <script src="js/util-service.js"></script>
     <script src="js/storage-service.js"></script>

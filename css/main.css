@@ -1,17 +1,57 @@
-.my-canvas {
-  /* background-color: aqua; */
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 
-.my-canvas {
-  /* background-image: url('https://images.unsplash.com/photo-1635262664731-a728acbc1276?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'); */
+body {
+  margin: 0;
 }
 
+header {
+  height: 50px;
+  background-color: aqua;
+}
+
+.meme-editor {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-inline-end: 10%;
+  margin-inline-start: 10%;
+}
+
+.line-controls {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
 .image-gallery {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 20px;
 }
 .image-gallery img {
   width: 200px;
   height: 200px;
   margin-left: 10px;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  height: 30px;
+  background-color: aqua;
+  text-align: center;
+}
+
+@media (max-width: 740px) {
+  .meme-editor {
+    flex-direction: column;
+  }
+  .my-canvas {
+    width: auto;
+  }
 }

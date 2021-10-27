@@ -4,10 +4,15 @@ var gCanvas = document.querySelector('canvas');
 var gCtx = gCanvas.getContext('2d');
 var gSelectedLine = 0;
 var gCurrMeme;
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
+var gStartPos;
+var isDrag = false;
 
 function onInit() {
   renderGallery();
-  renderCanvas();
+  addMouseListeners();
+  addTouchListeners();
+  // renderCanvas();
 }
 
 function renderGallery() {
@@ -60,12 +65,17 @@ function renderCanvas() {
       if (gCurrMeme.selectedLineIdx === i) {
         //   console.log('selected', meme.selectedLineIdx);
         var width = gCtx.measureText(gCurrMeme.lines[i].txt).width;
+        var height = gCtx.measureText(
+          gCurrMeme.lines[i].txt
+        ).fontBoundingBoxAscent;
+        gCurrMeme.lines[i].lineHeight = height;
+        gCurrMeme.lines[i].lineWidth = width;
         gCtx.beginPath();
         gCtx.rect(
           gCurrMeme.lines[i].x - 10,
-          gCurrMeme.lines[i].y - 35,
+          gCurrMeme.lines[i].y - height,
           width + 20,
-          55
+          height + 5
         );
         gCtx.stroke();
       }
@@ -157,4 +167,63 @@ function onSave() {
   var dataUrl = gCanvas.toDataURL();
   updateDataUrl(dataUrl, gCurrMeme.id);
   saveMeme();
+}
+
+//drag logic
+function addMouseListeners() {
+  gCanvas.addEventListener('mousemove', onMove);
+  gCanvas.addEventListener('mousedown', onDown);
+  gCanvas.addEventListener('mouseup', onUp);
+}
+
+function addTouchListeners() {
+  gCanvas.addEventListener('touchmove', onMove);
+  gCanvas.addEventListener('touchstart', onDown);
+  gCanvas.addEventListener('touchend', onUp);
+}
+
+function onDown(ev) {
+  const pos = getEvPos(ev);
+  console.log(pos);
+  console.log(gCurrMeme.lines[0].x, gCurrMeme.lines[0].y);
+  if (!isLineClicked(pos, gCurrMeme.id)) return;
+  console.log('hit');
+  // setCircleDrag(true);
+  isDrag = true;
+  gStartPos = pos;
+  document.body.style.cursor = 'grabbing';
+}
+
+function onMove(ev) {
+  // const circle = getCircle();
+  if (isDrag) {
+    const pos = getEvPos(ev);
+    const dx = pos.x - gStartPos.x;
+    const dy = pos.y - gStartPos.y;
+    gStartPos = pos;
+    moveLine(dx, dy, gCurrMeme.id);
+    console.log('move');
+    renderCanvas();
+  }
+}
+
+function onUp() {
+  isDrag = false;
+  document.body.style.cursor = 'grab';
+}
+
+function getEvPos(ev) {
+  var pos = {
+    x: ev.offsetX,
+    y: ev.offsetY,
+  };
+  if (gTouchEvs.includes(ev.type)) {
+    ev.preventDefault();
+    ev = ev.changedTouches[0];
+    pos = {
+      x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+      y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+    };
+  }
+  return pos;
 }

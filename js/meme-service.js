@@ -4,32 +4,15 @@ const MEMES_KEY = 'memes';
 var gImgs = [
   {id: 1, url: 'img/1.jpg', keywords: ['happy']},
   {id: 2, url: 'img/2.jpg', keywords: ['happy']},
+  {id: 3, url: 'img/3.jpg', keywords: ['happy']},
+  {id: 4, url: 'img/4.jpg', keywords: ['happy']},
+  {id: 5, url: 'img/5.jpg', keywords: ['happy']},
+  {id: 6, url: 'img/6.jpg', keywords: ['happy']},
+  {id: 7, url: 'img/7.jpg', keywords: ['happy']},
+  {id: 8, url: 'img/8.jpg', keywords: ['happy']},
 ];
 
 var gMemes = loadFromStorage(MEMES_KEY) || [];
-
-// var gCurrMeme = {
-//   selectedImgId: 1,
-//   selectedLineIdx: 0,
-//   lines: [
-//     {
-//       txt: 'I never eat Falafel',
-//       size: 20,
-//       align: 'left',
-//       color: 'red',
-//       x: 50,
-//       y: 50,
-//     },
-//     {
-//       txt: 'I never eat Falafel2',
-//       size: 20,
-//       align: 'left',
-//       color: 'red',
-//       x: 50,
-//       y: 250,
-//     },
-//   ],
-// };
 
 function getImgs() {
   return gImgs;

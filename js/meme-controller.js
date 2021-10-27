@@ -7,6 +7,7 @@ var gCurrMeme;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 var gStartPos;
 var isDrag = false;
+var toggle = false;
 
 function onInit() {
   renderGallery();
@@ -96,6 +97,7 @@ function onImgClick(imgId) {
   toggleEditor(true);
   toggleGallery(false);
   toggleMemes(false);
+  toggleAbout(false);
   renderCanvas();
 }
 
@@ -105,6 +107,7 @@ function onMemeClick(memeId) {
   toggleEditor(true);
   toggleGallery(false);
   toggleMemes(false);
+  toggleAbout(false);
   renderCanvas();
 }
 
@@ -123,10 +126,24 @@ function toggleMemes(isShow) {
   elMemes.style.display = isShow ? 'flex' : 'none';
 }
 
+function toggleAbout(isShow) {
+  const elAbout = document.querySelector('.about');
+  elAbout.style.display = isShow ? 'flex' : 'none';
+}
+
+function onOpenNav() {
+  const nav = document.querySelector('.nav');
+  toggle = !toggle;
+  nav.classList.toggle('show-nav');
+  const btnBurger = document.querySelector('.btn-burger');
+  btnBurger.innerText = toggle ? 'X' : '☰';
+}
+
 function onBackToGallery() {
   toggleGallery(true);
   toggleEditor(false);
   toggleMemes(false);
+  toggleAbout(true);
 }
 
 function onBackToMemes() {
@@ -134,6 +151,7 @@ function onBackToMemes() {
   toggleGallery(false);
   toggleEditor(false);
   toggleMemes(true);
+  toggleAbout(false);
 }
 
 function onUpdateText(inputText) {

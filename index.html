@@ -10,11 +10,22 @@
   <body onload="onInit()">
     <header>
       <h1>my Memes</h1>
-      <div>
-        <button class="btn-gallery" onclick="onBackToGallery()">
-          back to gallery
-        </button>
-        <button class="btn-memes" onclick="onBackToMemes()">Saved Memes</button>
+      <div class="header-buttons">
+        <button class="btn-burger" onclick="onOpenNav()">&#9776;</button>
+        <div class="nav">
+          <ul>
+            <li>
+              <button class="btn-gallery" onclick="onBackToGallery()">
+                back to gallery
+              </button>
+            </li>
+            <li>
+              <button class="btn-memes" onclick="onBackToMemes()">
+                Saved Memes
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
 
@@ -61,6 +72,25 @@
         <div class="memes"></div>
       </section>
     </main>
+
+    <section class="about">
+      <img src="img/Me.PNG" alt="" />
+      <div class="info">
+        <h1>Shani Aharon</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis,
+          eius magni consequatur accusamus quisquam at dolorum, non aperiam
+          maxime autem quidem laboriosam repellendus consequuntur cupiditate!
+          Molestiae sint doloribus rerum eum?
+        </p>
+        <ul>
+          <li><a href="#">in</a></li>
+          <li><a href="#">f</a></li>
+          <li><a href="#">git</a></li>
+        </ul>
+      </div>
+    </section>
+
     <footer>
       <p>all rights reserevd shani aharon</p>
     </footer>

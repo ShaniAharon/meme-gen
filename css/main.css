@@ -10,8 +10,48 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  align-items: center;
+  height: 60px;
+  color: aliceblue;
   background-color: aqua;
+}
+
+header h1 {
+  margin-left: 10px;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.header-buttons button {
+  padding: 6px;
+  border-radius: 5%;
+  background-color: azure;
+  font-size: large;
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(151, 151, 233);
+}
+
+.header-buttons button:hover {
+  background-color: rgb(112, 112, 150);
+}
+
+.btn-gallery {
+  margin-right: 10px;
+}
+
+.btn-burger {
+  display: none;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
 }
 
 .meme-editor {
@@ -31,7 +71,10 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
+  margin-inline-end: 20%;
+  margin-inline-start: 20%;
+  margin-top: 10px;
+  background-color: gainsboro;
 }
 .image-gallery img {
   width: 200px;
@@ -54,21 +97,89 @@ header {
   display: flex;
 }
 
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline-end: 20%;
+  margin-inline-start: 20%;
+  margin-top: 60px;
+}
+
+.about h1 {
+  font-weight: bold;
+}
+
+.about img {
+  border-radius: 50%;
+  margin-right: 40px;
+}
+
+.info ul {
+  margin-inline-start: 0;
+  list-style: none;
+  display: flex;
+}
+
+.info li {
+  margin-right: 20px;
+  margin-top: 5px;
+  background-color: gold;
+  padding: 10px;
+}
+
+.info a {
+  text-decoration: none;
+  color: white;
+}
+
 footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
-  height: 30px;
+  margin-top: 160px;
+  height: 80px;
   background-color: aqua;
   text-align: center;
 }
 
+.show-nav {
+  position: absolute;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  top: 60px;
+  right: 0px;
+  z-index: 1;
+  background-color: aqua;
+  height: 100px;
+}
+
 @media (max-width: 740px) {
+  .nav {
+    display: none;
+  }
+
+  .nav ul {
+    flex-direction: column;
+  }
+
+  .btn-gallery {
+    margin-bottom: 10px;
+  }
+
+  .btn-burger {
+    display: flex;
+  }
+
   .meme-editor {
     flex-direction: column;
   }
   .my-canvas {
     width: auto;
+  }
+
+  .about {
+    flex-direction: column;
   }
 }

@@ -7,8 +7,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css" />
   </head>
-  <body>
-    <h1>my Memes</h1>
+  <body onload="onInit()">
+    <header>
+      <h1>my Memes</h1>
+    </header>
+
+    <main></main>
+
+    <section>
+      <canvas class="my-canvas" width="300px" height="300px"></canvas>
+      <input
+        oninput="onUpdateText(this.value)"
+        class="insert-text"
+        type="text"
+        placeholder="Enter text"
+      />
+    </section>
+
+    <section class="image-gallery"></section>
 
     <script src="js/util-service.js"></script>
     <script src="js/storage-service.js"></script>

@@ -1,0 +1,17 @@
+.my-canvas {
+  /* background-color: aqua; */
+}
+
+.my-canvas {
+  /* background-image: url('https://images.unsplash.com/photo-1635262664731-a728acbc1276?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'); */
+}
+
+.image-gallery {
+  display: flex;
+  margin-top: 20px;
+}
+.image-gallery img {
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+}

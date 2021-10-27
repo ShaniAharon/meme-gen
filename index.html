@@ -33,6 +33,25 @@
           <button onclick="onMoveUp(-1)">Up</button>
           <button onclick="onMoveDown(1)">Down</button>
           <button onclick="onSwitchLine()">Switch Line</button>
+          <button onclick="onAddLine()">Add Line</button>
+          <button onclick="onRemoveLine()">Remove Line</button>
+          <button onclick="onAlignLeft()">Align Left</button>
+          <button onclick="onAlignRight()">Align Right</button>
+          <button onclick="onAlignCenter()">Align Center</button>
+          <div>
+            <input type="color" onchange="onPickColor(this.value)" />
+            <label for="stroke">s</label>
+            <input
+              type="color"
+              id="stroke"
+              onchange="onPickStrokeColor(this.value)"
+            />
+            <select name="font" id="font" onchange="onFont(this.value)">
+              <option value="impact">IMPACT</option>
+              <option value="arial">ARIAL</option>
+            </select>
+          </div>
+
           <button onclick="onSave()">Save</button>
         </div>
       </section>

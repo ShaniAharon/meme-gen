@@ -55,7 +55,9 @@ function createMeme(imgId) {
         txt: 'I never eat Falafel',
         size: 20,
         align: 'left',
-        color: 'red',
+        font: 'impact',
+        stroke: 'black',
+        color: 'white',
         x: 50,
         y: 50,
       },
@@ -63,7 +65,9 @@ function createMeme(imgId) {
         txt: 'I never eat Falafel2',
         size: 20,
         align: 'left',
-        color: 'red',
+        font: 'impact',
+        stroke: 'black',
+        color: 'white',
         x: 50,
         y: 250,
       },
@@ -71,6 +75,21 @@ function createMeme(imgId) {
   };
   gMemes.push(meme);
   return meme;
+}
+
+//new
+function createNewLine() {
+  let line = {
+    txt: 'I never eat Falafel',
+    size: 20,
+    align: 'left',
+    font: 'impact',
+    stroke: 'black',
+    color: 'white',
+    x: 50,
+    y: 50,
+  };
+  return line;
 }
 
 // function getMeme() {
@@ -94,6 +113,50 @@ function updateSize(diff, lineIdx, memeId) {
 function moveTextByDiff(diff, lineIdx, memeId) {
   let meme = getMemeById(memeId);
   meme.lines[lineIdx].y += diff * 10;
+}
+
+//new
+function addLine(memeId) {
+  let meme = getMemeById(memeId);
+  meme.lines.push(createNewLine());
+}
+
+function removeLine(memeId) {
+  let meme = getMemeById(memeId);
+  if (!meme.lines.length) return;
+  meme.lines.splice(meme.selectedLineIdx, 1);
+}
+
+function alignLeft(memeId) {
+  let meme = getMemeById(memeId);
+  meme.lines[meme.selectedLineIdx].x = 15;
+}
+
+function alignRight(memeId) {
+  let meme = getMemeById(memeId);
+  meme.lines[meme.selectedLineIdx].x =
+    285 - meme.lines[meme.selectedLineIdx].lineWidth;
+}
+
+function alignCenter(memeId) {
+  let meme = getMemeById(memeId);
+  meme.lines[meme.selectedLineIdx].x =
+    150 - meme.lines[meme.selectedLineIdx].lineWidth / 2;
+}
+
+function setLineColor(memeId, color) {
+  let meme = getMemeById(memeId);
+  meme.lines[meme.selectedLineIdx].color = color;
+}
+
+function setLineStrokeColor(memeId, color) {
+  let meme = getMemeById(memeId);
+  meme.lines[meme.selectedLineIdx].stroke = color;
+}
+
+function setFont(font, memeId) {
+  let meme = getMemeById(memeId);
+  meme.lines[meme.selectedLineIdx].font = font;
 }
 
 function setSelectedImg(imgId, memeId) {
@@ -144,4 +207,30 @@ function moveLine(dx, dy, memeId) {
   let meme = getMemeById(memeId);
   meme.lines[meme.selectedLineIdx].x += dx;
   meme.lines[meme.selectedLineIdx].y += dy;
+}
+
+//new
+function whichLineClicked(pos, memeId) {
+  let meme = getMemeById(memeId);
+  var lineIdx = -1;
+  meme.lines.some((line, idx) => {
+    var lineX = line.x;
+    var lineY = line.y;
+    var lineWidth = line.lineWidth;
+    var lineHeight = line.lineHeight;
+    console.log(lineY);
+    if (
+      lineX <= pos.x &&
+      lineX + lineWidth >= pos.x &&
+      lineY >= pos.y &&
+      lineY - lineHeight <= pos.y
+    ) {
+      lineIdx = idx;
+      console.log('yes');
+      return;
+    }
+  });
+
+  return lineIdx;
+  //fontBoundingBoxAscent clac height
 }

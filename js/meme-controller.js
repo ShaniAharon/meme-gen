@@ -56,8 +56,14 @@ function renderCanvas() {
     //can do forEach
     for (let i = 0; i < gCurrMeme.lines.length; i++) {
       gCtx.font = gCurrMeme.lines[i].size + 'px impact';
-      // gCtx.strokeStyle = 'white';
+      gCtx.strokeStyle = gCurrMeme.lines[i].stroke;
+      gCtx.fillStyle = gCurrMeme.lines[i].color;
       gCtx.fillText(
+        gCurrMeme.lines[i].txt,
+        gCurrMeme.lines[i].x,
+        gCurrMeme.lines[i].y
+      );
+      gCtx.strokeText(
         gCurrMeme.lines[i].txt,
         gCurrMeme.lines[i].x,
         gCurrMeme.lines[i].y
@@ -163,6 +169,50 @@ function onSwitchLine() {
   renderCanvas();
 }
 
+//new
+// TODO: add in the top then bootom then middle
+function onAddLine() {
+  addLine(gCurrMeme.id);
+  renderCanvas();
+}
+
+function onRemoveLine() {
+  removeLine(gCurrMeme.id);
+  renderCanvas();
+}
+
+function onAlignLeft() {
+  alignLeft(gCurrMeme.id);
+  renderCanvas();
+}
+
+function onAlignRight() {
+  alignRight(gCurrMeme.id);
+  renderCanvas();
+}
+
+function onAlignCenter() {
+  alignCenter(gCurrMeme.id);
+  renderCanvas();
+}
+
+function onPickColor(color) {
+  setLineColor(gCurrMeme.id, color);
+  renderCanvas();
+}
+
+function onPickStrokeColor(color) {
+  setLineStrokeColor(gCurrMeme.id, color);
+  renderCanvas();
+}
+
+//fix later
+function onFont(font) {
+  setFont(font, gCurrMeme.id);
+  console.log(font);
+  renderCanvas();
+}
+
 function onSave() {
   var dataUrl = gCanvas.toDataURL();
   updateDataUrl(dataUrl, gCurrMeme.id);
@@ -174,12 +224,23 @@ function addMouseListeners() {
   gCanvas.addEventListener('mousemove', onMove);
   gCanvas.addEventListener('mousedown', onDown);
   gCanvas.addEventListener('mouseup', onUp);
+  gCanvas.addEventListener('click', onClick);
 }
 
 function addTouchListeners() {
   gCanvas.addEventListener('touchmove', onMove);
   gCanvas.addEventListener('touchstart', onDown);
   gCanvas.addEventListener('touchend', onUp);
+}
+
+//fix later
+function onClick(ev) {
+  const pos = getEvPos(ev);
+  const lineIdx = whichLineClicked(pos, gCurrMeme.id);
+  console.log(lineIdx);
+  if (lineIdx < 0) return;
+  gSelectedLine = setSelectedLineIdx(lineIdx, gCurrMeme.id);
+  renderCanvas();
 }
 
 function onDown(ev) {

@@ -14,6 +14,7 @@
         <button class="btn-gallery" onclick="onBackToGallery()">
           back to gallery
         </button>
+        <button class="btn-memes" onclick="onBackToMemes()">Saved Memes</button>
       </div>
     </header>
 
@@ -32,10 +33,14 @@
           <button onclick="onMoveUp(-1)">Up</button>
           <button onclick="onMoveDown(1)">Down</button>
           <button onclick="onSwitchLine()">Switch Line</button>
+          <button onclick="onSave()">Save</button>
         </div>
       </section>
 
       <section class="image-gallery"></section>
+      <section class="saved-memes">
+        <div class="memes"></div>
+      </section>
     </main>
     <footer>
       <p>all rights reserevd shani aharon</p>

@@ -39,6 +39,21 @@ header {
   margin-left: 10px;
 }
 
+.saved-memes {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.saved-memes img {
+  width: 200px;
+  margin-inline-start: 10px;
+}
+
+.memes {
+  display: flex;
+}
+
 footer {
   display: flex;
   justify-content: center;

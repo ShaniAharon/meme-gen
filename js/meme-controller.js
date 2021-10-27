@@ -52,7 +52,24 @@ function renderCanvas() {
 function onImgClick(imgId) {
   console.log(imgId);
   setSelectedImg(imgId);
+  toggleEditor(true);
+  toggleGallery(false);
   renderCanvas();
+}
+
+function toggleEditor(isShow) {
+  const elEditor = document.querySelector('.meme-editor');
+  elEditor.style.display = isShow ? 'flex' : 'none';
+}
+
+function toggleGallery(isShow) {
+  const elGallery = document.querySelector('.image-gallery');
+  elGallery.style.display = isShow ? 'flex' : 'none';
+}
+
+function onBackToGallery() {
+  toggleGallery(true);
+  toggleEditor(false);
 }
 
 function onUpdateText(inputText) {

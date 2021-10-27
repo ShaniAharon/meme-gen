@@ -8,12 +8,14 @@ body {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
   height: 50px;
   background-color: aqua;
 }
 
 .meme-editor {
-  display: flex;
+  display: none;
   justify-content: center;
   margin-top: 10px;
   margin-inline-end: 10%;

@@ -288,3 +288,9 @@ function getEvPos(ev) {
   }
   return pos;
 }
+
+function downloadCanvas(elLink) {
+  const data = gCanvas.toDataURL();
+  elLink.href = data;
+  elLink.download = 'my-img.jpg';
+}

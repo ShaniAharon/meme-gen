@@ -33,37 +33,75 @@
       <section class="meme-editor">
         <canvas class="my-canvas" width="300px" height="300px"></canvas>
         <div class="line-controls">
-          <input
-            oninput="onUpdateText(this.value)"
-            class="insert-text"
-            type="text"
-            placeholder="Enter text"
-          />
-          <button onclick="onIncreaseSize(1)">bigger</button>
-          <button onclick="onDecreaseSize(-1)">smaller</button>
-          <button onclick="onMoveUp(-1)">Up</button>
-          <button onclick="onMoveDown(1)">Down</button>
-          <button onclick="onSwitchLine()">Switch Line</button>
-          <button onclick="onAddLine()">Add Line</button>
-          <button onclick="onRemoveLine()">Remove Line</button>
-          <button onclick="onAlignLeft()">Align Left</button>
-          <button onclick="onAlignRight()">Align Right</button>
-          <button onclick="onAlignCenter()">Align Center</button>
-          <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
-          <div>
-            <input type="color" onchange="onPickColor(this.value)" />
-            <label for="stroke">s</label>
+          <div class="upper-container">
             <input
-              type="color"
-              id="stroke"
-              onchange="onPickStrokeColor(this.value)"
+              oninput="onUpdateText(this.value)"
+              class="insert-text"
+              type="text"
+              placeholder="Enter text"
             />
-            <select name="font" id="font" onchange="onFont(this.value)">
-              <option value="impact">IMPACT</option>
-              <option value="arial">ARIAL</option>
-            </select>
+            <div class="below-sec">
+              <button onclick="onSwitchLine()">
+                <img src="/img/up-down.png" alt="" />
+              </button>
+              <button onclick="onAddLine()">
+                <img src="/img/plus.png" alt="" />
+              </button>
+              <button onclick="onRemoveLine()">
+                <img src="/img/trash.png" alt="" />
+              </button>
+            </div>
           </div>
-          <button onclick="onSave()">Save</button>
+          <div class="middle-container">
+            <div class="middle-upper">
+              <button onclick="onIncreaseSize(1)">
+                <img src="/img/inc.png" alt="" />
+              </button>
+              <button onclick="onDecreaseSize(-1)">
+                <img src="/img/dic.png" alt="" />
+              </button>
+              <button onclick="onAlignLeft()">
+                <img src="/img/left.png" alt="" />
+              </button>
+              <button onclick="onAlignRight()">
+                <img src="/img/right.png" alt="" />
+              </button>
+              <button onclick="onAlignCenter()">
+                <img src="/img/center.png" alt="" />
+              </button>
+            </div>
+            <div class="middle-below">
+              <select name="font" id="font" onchange="onFont(this.value)">
+                <option value="impact">IMPACT</option>
+                <option value="arial">ARIAL</option>
+              </select>
+              <input
+                class="color-picker"
+                type="color"
+                onchange="onPickColor(this.value)"
+              />
+              <label for="stroke">s</label>
+              <input
+                type="color"
+                id="stroke"
+                onchange="onPickStrokeColor(this.value)"
+              />
+            </div>
+          </div>
+
+          <!-- <button onclick="onMoveUp(-1)">Up</button>
+          <button onclick="onMoveDown(1)">Down</button> -->
+
+          <div class="save-sec">
+            <a
+              href="#"
+              class="download"
+              onclick="downloadCanvas(this)"
+              download=""
+              >Download</a
+            >
+            <button class="btn-save" onclick="onSave()">Save</button>
+          </div>
         </div>
       </section>
 

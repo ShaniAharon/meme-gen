@@ -223,6 +223,7 @@ function _saveMemesToStorage() {
 
 function isLineClicked(pos, memeId) {
   let meme = getMemeById(memeId);
+  console.log(meme.selectedLineIdx);
   var lineX = meme.lines[meme.selectedLineIdx].x;
   var lineY = meme.lines[meme.selectedLineIdx].y;
   var lineWidth = meme.lines[meme.selectedLineIdx].lineWidth;

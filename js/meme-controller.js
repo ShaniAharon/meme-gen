@@ -9,6 +9,7 @@ var gStartPos;
 var isDrag = false;
 var toggle = false;
 var gStickerPage = 1;
+var isClickedOff = false;
 
 const elInput = document.querySelector('.insert-text');
 
@@ -92,7 +93,7 @@ function renderCanvas() {
       gCurrMeme.lines[i].lineHeight = height;
       gCurrMeme.lines[i].lineWidth = width;
 
-      if (gCurrMeme.selectedLineIdx === i) {
+      if (gCurrMeme.selectedLineIdx === i && !isClickedOff) {
         gCtx.beginPath();
         gCtx.rect(
           gCurrMeme.lines[i].x - 10,
@@ -103,6 +104,7 @@ function renderCanvas() {
         gCtx.stroke();
       }
     }
+    isClickedOff = false;
   };
 }
 
@@ -261,10 +263,15 @@ function onFont(font) {
 }
 
 function onSave() {
-  var dataUrl = gCanvas.toDataURL();
-  updateDataUrl(dataUrl, gCurrMeme.id);
-  saveMeme();
-  onBackToMemes();
+  isClickedOff = true;
+  renderCanvas();
+  //remove all black boxes before the save
+  setTimeout(function () {
+    var dataUrl = gCanvas.toDataURL();
+    updateDataUrl(dataUrl, gCurrMeme.id);
+    saveMeme();
+    onBackToMemes();
+  }, 500);
 }
 
 //drag logic
@@ -284,7 +291,13 @@ function addTouchListeners() {
 function onClick(ev) {
   const pos = getEvPos(ev);
   const lineIdx = whichLineClicked(pos, gCurrMeme.id);
-  if (lineIdx < 0) return;
+  if (lineIdx < 0) {
+    //flag to remove the black selected box when clicked aside on the canvas
+    //user can do it before the save soo it will save clean with no box
+    isClickedOff = true;
+    renderCanvas();
+    return;
+  }
   gSelectedLine = setSelectedLineIdx(lineIdx, gCurrMeme.id);
   elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
   renderCanvas();

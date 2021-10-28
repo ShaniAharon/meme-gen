@@ -68,7 +68,7 @@ function createNewLine() {
     stroke: 'black',
     color: 'white',
     x: 50,
-    y: 50,
+    y: 150,
   };
   return line;
 }

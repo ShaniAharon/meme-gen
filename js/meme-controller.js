@@ -288,7 +288,7 @@ function onMove(ev) {
 
 function onUp() {
   isDrag = false;
-  document.body.style.cursor = 'grab';
+  document.body.style.cursor = 'auto';
 }
 
 function getEvPos(ev) {

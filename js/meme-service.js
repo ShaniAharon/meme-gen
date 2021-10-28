@@ -10,6 +10,13 @@ var gImgs = [
   {id: 6, url: 'img/6.jpg', keywords: ['dude']},
   {id: 7, url: 'img/7.jpg', keywords: ['baby,funny']},
   {id: 8, url: 'img/8.jpg', keywords: ['man']},
+  {id: 9, url: 'img/9.jpg', keywords: ['kid', 'funny']},
+  {id: 10, url: 'img/10.jpg', keywords: ['obama']},
+  {id: 12, url: 'img/12.jpg', keywords: ['haim']},
+  {id: 13, url: 'img/13.jpg', keywords: ['cup', 'man']},
+  {id: 14, url: 'img/14.jpg', keywords: ['man,matrix']},
+  {id: 15, url: 'img/15.jpg', keywords: ['man,circle']},
+  {id: 16, url: 'img/16.jpg', keywords: ['man,old']},
 ];
 
 var gKeyWordsMap = {trump: 0, funny: 0, dog: 0, cat: 0};

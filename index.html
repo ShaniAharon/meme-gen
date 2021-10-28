@@ -21,13 +21,16 @@
         <div class="nav">
           <ul>
             <li>
-              <button class="btn-gallery" onclick="onBackToGallery()">
-                back to gallery
+              <button
+                class="btn-gallery"
+                onclick="onBackToGallery(), onCloseNav()"
+              >
+                Gallery
               </button>
             </li>
             <li>
-              <button class="btn-memes" onclick="onBackToMemes()">
-                Saved Memes
+              <button class="btn-memes" onclick="onBackToMemes(), onCloseNav()">
+                Memes
               </button>
             </li>
           </ul>

@@ -235,7 +235,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   top: 60px;
-  right: 0px;
+  right: 198px;
   z-index: 1;
   background-color: aqua;
   height: 100px;
@@ -400,5 +400,10 @@ footer {
 
   .saved-memes {
     margin-inline-end: 10%;
+  }
+
+  .btn-gallery,
+  .btn-memes {
+    width: 160px;
   }
 }

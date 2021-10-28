@@ -157,10 +157,16 @@ function toggleSearch(isShow) {
 
 function onOpenNav() {
   const nav = document.querySelector('.nav');
-  toggle = !toggle;
   nav.classList.toggle('show-nav');
   const btnBurger = document.querySelector('.btn-burger');
-  btnBurger.innerText = toggle ? 'X' : '☰';
+  btnBurger.innerText = btnBurger.innerText === 'X' ? '☰' : 'X';
+}
+
+function onCloseNav() {
+  const nav = document.querySelector('.nav');
+  nav.classList.remove('show-nav');
+  const btnBurger = document.querySelector('.btn-burger');
+  btnBurger.innerText = '☰';
 }
 
 function onBackToGallery() {
@@ -258,6 +264,7 @@ function onSave() {
   var dataUrl = gCanvas.toDataURL();
   updateDataUrl(dataUrl, gCurrMeme.id);
   saveMeme();
+  onBackToMemes();
 }
 
 //drag logic

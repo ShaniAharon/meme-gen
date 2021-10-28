@@ -16,7 +16,6 @@ function onInit() {
   renderGallery();
   addMouseListeners();
   addTouchListeners();
-  // renderCanvas();
 }
 
 function renderGallery(searchWord = '') {
@@ -66,9 +65,7 @@ function renderStickers(idx) {
 }
 
 function renderCanvas() {
-  // var meme = getMeme();
   var img = getImgById(gCurrMeme.selectedImgId);
-  // gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
   var elImg = new Image();
   elImg.src = img.url;
   elImg.onload = () => {
@@ -89,8 +86,7 @@ function renderCanvas() {
         gCurrMeme.lines[i].x,
         gCurrMeme.lines[i].y
       );
-      // if (gCurrMeme.selectedLineIdx === i) {
-      //   console.log('selected', meme.selectedLineIdx);
+
       var width = gCtx.measureText(gCurrMeme.lines[i].txt).width;
       var height = gCtx.measureText(
         gCurrMeme.lines[i].txt
@@ -114,7 +110,6 @@ function renderCanvas() {
 
 function onImgClick(imgId) {
   gCurrMeme = createMeme(imgId);
-  // setSelectedImg(imgId);
   toggleEditor(true);
   toggleGallery(false);
   toggleMemes(false);
@@ -215,12 +210,9 @@ function onSwitchLine() {
   gSelectedLine = setSelectedLineIdx(gSelectedLine, gCurrMeme.id);
   elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
 
-  // gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
   renderCanvas();
 }
 
-//new
-// TODO: add in the top then bootom then middle
 function onAddLine() {
   addLine(gCurrMeme.id);
   renderCanvas();

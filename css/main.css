@@ -30,7 +30,7 @@ header h1 {
 .header-buttons button {
   padding: 6px;
   border-radius: 5%;
-  background-color: azure;
+  background-color: rgb(19, 18, 18);
   font-size: large;
   font-weight: bold;
   cursor: pointer;
@@ -54,9 +54,49 @@ header h1 {
   list-style: none;
 }
 
+/* //search */
+.wrapper {
+  position: relative;
+  display: flex;
+  min-width: 100px;
+}
+
+.search {
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 25px;
+  width: 100%;
+  padding: 2px 23px 2px 30px;
+  outline: 0;
+  background-color: #f5f5f5;
+}
+
+.search-icon {
+  position: relative;
+  top: 5px;
+  left: 22px;
+  width: 14px;
+}
+
+.clear-icon {
+  position: absolute;
+  top: 9px;
+  right: 8px;
+  width: 12px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.search:hover,
+.search:focus {
+  border: 1px solid #009688;
+  background-color: white;
+}
+
 .search-sec {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .meme-editor {
@@ -101,26 +141,40 @@ header h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-inline-end: 20%;
-  margin-inline-start: 20%;
+  margin-inline-end: 10%;
+  margin-inline-start: 10%;
   margin-top: 10px;
+  padding: 20px;
   background-color: gainsboro;
 }
 .image-gallery img {
   width: 200px;
   height: 200px;
-  margin-left: 10px;
+  margin: 10px;
+  border-radius: 15%;
+}
+
+.image-gallery img:hover {
+  opacity: 0.7;
+  cursor: pointer;
 }
 
 .saved-memes {
   display: none;
   flex-wrap: wrap;
   justify-content: center;
+  margin-inline-end: 10%;
+  margin-inline-start: 10%;
+  margin-top: 10px;
+  padding: 20px;
+  background-color: rgb(209, 161, 231);
 }
 
 .saved-memes img {
   width: 200px;
-  margin-inline-start: 10px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 15%;
 }
 
 .memes {
@@ -168,7 +222,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 160px;
+  margin-top: 32vh;
   height: 80px;
   background-color: aqua;
   text-align: center;

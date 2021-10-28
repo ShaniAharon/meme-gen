@@ -180,6 +180,7 @@ header h1 {
 .memes {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .about {
@@ -383,5 +384,9 @@ footer {
 
   .memes {
     flex-direction: column;
+  }
+
+  .saved-memes {
+    margin-inline-end: 10%;
   }
 }

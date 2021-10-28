@@ -294,6 +294,14 @@ footer {
   padding-inline-end: 46px;
 }
 
+.btn-share {
+  background-color: tomato;
+  color: aliceblue;
+  font-weight: bold;
+  cursor: pointer;
+  padding-inline-end: 56px;
+}
+
 .middle-container {
   display: flex;
   flex-direction: column;
@@ -340,6 +348,10 @@ footer {
   }
 
   .btn-save {
+    margin-left: 10px;
+  }
+
+  .btn-share {
     margin-left: 10px;
   }
   .stickers {

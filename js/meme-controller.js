@@ -362,3 +362,19 @@ function onNextStickerPage(diff) {
   }
   renderStickers(gStickerPage);
 }
+
+//share with web api
+async function onShareCanvas() {
+  const dataUrl = gCanvas.toDataURL();
+  const blob = await (await fetch(dataUrl)).blob();
+  const filesArray = [
+    new File([blob], 'myMeme.png', {
+      type: blob.type,
+      lastModified: new Date().getTime(),
+    }),
+  ];
+  const shareData = {
+    files: filesArray,
+  };
+  navigator.share(shareData);
+}

@@ -340,6 +340,11 @@ footer {
   margin-inline-start: 16px;
 }
 
+.save-sec button:hover,
+a:hover {
+  background-color: rgb(212, 48, 19);
+}
+
 .key-words li {
   padding-inline-end: 10px;
 }

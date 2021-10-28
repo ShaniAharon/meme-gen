@@ -196,6 +196,7 @@ footer {
   width: 40px;
   height: 40px;
   border-radius: 15%;
+  font-size: large;
   cursor: pointer;
 }
 
@@ -238,13 +239,14 @@ footer {
   color: aliceblue;
   font-weight: bold;
   cursor: pointer;
-  padding-inline-end: 36px;
+  padding-inline-end: 46px;
 }
 
 .middle-container {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-inline-start: 15px;
 }
 .middle-below {
   display: flex;
@@ -280,6 +282,14 @@ footer {
     flex-direction: column;
   }
 
+  .middle-container {
+    margin-top: 16px;
+    margin-inline-start: 3px;
+  }
+
+  .btn-save {
+    margin-left: 10px;
+  }
   .stickers {
     margin-right: 40px;
   }

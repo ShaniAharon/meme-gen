@@ -94,7 +94,7 @@ function createNewLine() {
 function createNewSticker(txt) {
   let sticker = {
     txt,
-    size: 20,
+    size: 30,
     stroke: 'black',
     color: 'white',
     x: 50,

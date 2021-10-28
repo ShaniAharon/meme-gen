@@ -54,7 +54,6 @@ function renderStickers(idx) {
     gStickerPage = 1;
     stickers = getStickers(1);
   }
-  console.log(stickers);
   var strHtmls = stickers.map((stick) => {
     return `
     <li onclick="onSticker('${stick}')">${stick}</li>
@@ -71,7 +70,6 @@ function renderCanvas() {
   elImg.onload = () => {
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
 
-    //can do forEach
     for (let i = 0; i < gCurrMeme.lines.length; i++) {
       gCtx.font = gCurrMeme.lines[i].size + 'px impact';
       gCtx.strokeStyle = gCurrMeme.lines[i].stroke;
@@ -284,7 +282,6 @@ function addTouchListeners() {
 function onClick(ev) {
   const pos = getEvPos(ev);
   const lineIdx = whichLineClicked(pos, gCurrMeme.id);
-  console.log(lineIdx);
   if (lineIdx < 0) return;
   gSelectedLine = setSelectedLineIdx(lineIdx, gCurrMeme.id);
   elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
@@ -293,10 +290,7 @@ function onClick(ev) {
 
 function onDown(ev) {
   const pos = getEvPos(ev);
-  console.log(pos);
-  console.log(gCurrMeme.lines[0].x, gCurrMeme.lines[0].y);
   if (!isLineClicked(pos, gCurrMeme.id)) return;
-  console.log('hit');
   isDrag = true;
   gStartPos = pos;
   document.body.style.cursor = 'grabbing';

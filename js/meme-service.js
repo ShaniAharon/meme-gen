@@ -227,8 +227,6 @@ function isLineClicked(pos, memeId) {
   var lineY = meme.lines[meme.selectedLineIdx].y;
   var lineWidth = meme.lines[meme.selectedLineIdx].lineWidth;
   var lineHeight = meme.lines[meme.selectedLineIdx].lineHeight;
-  console.log(lineX + lineWidth);
-  console.log(lineY - lineHeight);
   return (
     lineX <= pos.x &&
     lineX + lineWidth >= pos.x &&
@@ -259,13 +257,11 @@ function whichLineClicked(pos, memeId) {
       lineY - lineHeight <= pos.y
     ) {
       lineIdx = idx;
-      console.log('yes');
       return;
     }
   });
 
   return lineIdx;
-  //fontBoundingBoxAscent clac height
 }
 
 //search logic

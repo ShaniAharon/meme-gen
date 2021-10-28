@@ -341,7 +341,7 @@ footer {
 }
 
 .save-sec button:hover,
-a:hover {
+.save-sec a:hover {
   background-color: rgb(212, 48, 19);
 }
 

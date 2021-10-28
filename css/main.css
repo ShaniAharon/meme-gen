@@ -121,21 +121,21 @@ header h1 {
 
 .btn-left-arrow {
   display: inline;
-  position: absolute;
-  top: 210px;
+  position: relative;
+  margin-inline-start: -42px;
+  left: 43px;
+  top: 14px;
 }
 
 .btn-right-arrow {
   display: inline;
-  position: absolute;
-  right: 475px;
-  top: 210px;
+  position: relative;
+  top: 14px;
 }
 
 .line-controls {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
 }
 .image-gallery {
   display: flex;
@@ -245,6 +245,7 @@ footer {
 
 .line-controls {
   justify-content: space-around;
+  margin-left: 20px;
 }
 
 .line-controls button {
@@ -258,6 +259,10 @@ footer {
 .upper-container {
   display: flex;
   flex-direction: column;
+}
+
+.icons-gallery {
+  display: inline-flex;
 }
 
 .below-sec {
@@ -320,6 +325,7 @@ footer {
   display: flex;
   justify-content: right;
   justify-content: space-around;
+  margin-inline-start: 16px;
 }
 
 @media (max-width: 740px) {
@@ -355,9 +361,6 @@ footer {
   .btn-share {
     margin-left: 10px;
   }
-  .stickers {
-    margin-right: 40px;
-  }
 
   .stickers li {
     margin-left: 4px;
@@ -366,15 +369,10 @@ footer {
 
   .btn-left-arrow {
     display: inline;
-    position: absolute;
-    top: 515px;
   }
 
   .btn-right-arrow {
     display: inline;
-    position: absolute;
-    right: 57px !important;
-    top: 515px !important;
   }
 
   .my-canvas {
@@ -389,6 +387,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+    margin-left: 0px;
   }
 
   .save-sec {

@@ -115,6 +115,7 @@ function onImgClick(imgId) {
   toggleSearch(false);
   renderStickers(1);
   renderCanvas();
+  elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
 }
 
 function onMemeClick(memeId) {
@@ -126,6 +127,7 @@ function onMemeClick(memeId) {
   toggleAbout(false);
   toggleSearch(false);
   renderCanvas();
+  elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
 }
 
 function toggleEditor(isShow) {

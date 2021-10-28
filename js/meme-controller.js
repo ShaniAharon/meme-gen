@@ -9,6 +9,8 @@ var gStartPos;
 var isDrag = false;
 var toggle = false;
 
+const elInput = document.querySelector('.insert-text');
+
 function onInit() {
   renderGallery();
   addMouseListeners();
@@ -46,11 +48,9 @@ function renderMemes() {
 function renderCanvas() {
   // var meme = getMeme();
   var img = getImgById(gCurrMeme.selectedImgId);
-  console.log(img);
   // gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
   var elImg = new Image();
   elImg.src = img.url;
-  console.log(elImg);
   elImg.onload = () => {
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
 
@@ -69,14 +69,16 @@ function renderCanvas() {
         gCurrMeme.lines[i].x,
         gCurrMeme.lines[i].y
       );
+      // if (gCurrMeme.selectedLineIdx === i) {
+      //   console.log('selected', meme.selectedLineIdx);
+      var width = gCtx.measureText(gCurrMeme.lines[i].txt).width;
+      var height = gCtx.measureText(
+        gCurrMeme.lines[i].txt
+      ).fontBoundingBoxAscent;
+      gCurrMeme.lines[i].lineHeight = height;
+      gCurrMeme.lines[i].lineWidth = width;
+
       if (gCurrMeme.selectedLineIdx === i) {
-        //   console.log('selected', meme.selectedLineIdx);
-        var width = gCtx.measureText(gCurrMeme.lines[i].txt).width;
-        var height = gCtx.measureText(
-          gCurrMeme.lines[i].txt
-        ).fontBoundingBoxAscent;
-        gCurrMeme.lines[i].lineHeight = height;
-        gCurrMeme.lines[i].lineWidth = width;
         gCtx.beginPath();
         gCtx.rect(
           gCurrMeme.lines[i].x - 10,
@@ -91,7 +93,6 @@ function renderCanvas() {
 }
 
 function onImgClick(imgId) {
-  console.log(imgId);
   gCurrMeme = createMeme(imgId);
   // setSelectedImg(imgId);
   toggleEditor(true);
@@ -182,6 +183,7 @@ function onMoveDown(diff) {
 function onSwitchLine() {
   gSelectedLine++;
   gSelectedLine = setSelectedLineIdx(gSelectedLine, gCurrMeme.id);
+  elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
 
   // gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
   renderCanvas();
@@ -227,7 +229,6 @@ function onPickStrokeColor(color) {
 //fix later
 function onFont(font) {
   setFont(font, gCurrMeme.id);
-  console.log(font);
   renderCanvas();
 }
 
@@ -251,13 +252,13 @@ function addTouchListeners() {
   gCanvas.addEventListener('touchend', onUp);
 }
 
-//fix later
 function onClick(ev) {
   const pos = getEvPos(ev);
   const lineIdx = whichLineClicked(pos, gCurrMeme.id);
   console.log(lineIdx);
   if (lineIdx < 0) return;
   gSelectedLine = setSelectedLineIdx(lineIdx, gCurrMeme.id);
+  elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
   renderCanvas();
 }
 
@@ -281,7 +282,6 @@ function onMove(ev) {
     const dy = pos.y - gStartPos.y;
     gStartPos = pos;
     moveLine(dx, dy, gCurrMeme.id);
-    console.log('move');
     renderCanvas();
   }
 }

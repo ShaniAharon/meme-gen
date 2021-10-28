@@ -23,7 +23,6 @@ function getMemes() {
 }
 
 function getImgById(imgId) {
-  console.log(imgId);
   return gImgs.find((img) => img.id === imgId);
 }
 
@@ -60,7 +59,6 @@ function createMeme(imgId) {
   return meme;
 }
 
-//new
 function createNewLine() {
   let line = {
     txt: 'I never eat Falafel',
@@ -98,7 +96,6 @@ function moveTextByDiff(diff, lineIdx, memeId) {
   meme.lines[lineIdx].y += diff * 10;
 }
 
-//new
 function addLine(memeId) {
   let meme = getMemeById(memeId);
   meme.lines.push(createNewLine());
@@ -192,7 +189,6 @@ function moveLine(dx, dy, memeId) {
   meme.lines[meme.selectedLineIdx].y += dy;
 }
 
-//new
 function whichLineClicked(pos, memeId) {
   let meme = getMemeById(memeId);
   var lineIdx = -1;
@@ -201,7 +197,6 @@ function whichLineClicked(pos, memeId) {
     var lineY = line.y;
     var lineWidth = line.lineWidth;
     var lineHeight = line.lineHeight;
-    console.log(lineY);
     if (
       lineX <= pos.x &&
       lineX + lineWidth >= pos.x &&

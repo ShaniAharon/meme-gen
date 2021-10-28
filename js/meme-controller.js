@@ -18,8 +18,10 @@ function onInit() {
   // renderCanvas();
 }
 
-function renderGallery() {
-  const imgs = getImgs();
+function renderGallery(searchWord = '') {
+  let imgs;
+  if (!searchWord) imgs = getImgs();
+  else imgs = getSortBySearchImgs(searchWord);
   var strHtmls = imgs.map((img) => {
     return `
         <div>
@@ -311,4 +313,9 @@ function downloadCanvas(elLink) {
   const data = gCanvas.toDataURL();
   elLink.href = data;
   elLink.download = 'my-img.jpg';
+}
+
+//search logic
+function renderSearch(inputText) {
+  renderGallery(inputText);
 }

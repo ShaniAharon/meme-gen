@@ -2,14 +2,14 @@
 
 const MEMES_KEY = 'memes';
 var gImgs = [
-  {id: 1, url: 'img/1.jpg', keywords: ['happy']},
-  {id: 2, url: 'img/2.jpg', keywords: ['happy']},
-  {id: 3, url: 'img/3.jpg', keywords: ['happy']},
-  {id: 4, url: 'img/4.jpg', keywords: ['happy']},
-  {id: 5, url: 'img/5.jpg', keywords: ['happy']},
-  {id: 6, url: 'img/6.jpg', keywords: ['happy']},
-  {id: 7, url: 'img/7.jpg', keywords: ['happy']},
-  {id: 8, url: 'img/8.jpg', keywords: ['happy']},
+  {id: 1, url: 'img/1.jpg', keywords: ['trump,funny']},
+  {id: 2, url: 'img/2.jpg', keywords: ['happy,puppy,dog']},
+  {id: 3, url: 'img/3.jpg', keywords: ['happy,puppy,dog,baby']},
+  {id: 4, url: 'img/4.jpg', keywords: ['cat']},
+  {id: 5, url: 'img/5.jpg', keywords: ['baby.funny']},
+  {id: 6, url: 'img/6.jpg', keywords: ['dude']},
+  {id: 7, url: 'img/7.jpg', keywords: ['baby,funny']},
+  {id: 8, url: 'img/8.jpg', keywords: ['man']},
 ];
 
 var gMemes = loadFromStorage(MEMES_KEY) || [];
@@ -211,4 +211,13 @@ function whichLineClicked(pos, memeId) {
 
   return lineIdx;
   //fontBoundingBoxAscent clac height
+}
+
+//search logic
+function getSortBySearchImgs(searchWord) {
+  let imgs = gImgs.filter((img) => {
+    let words = img.keywords;
+    return words.some((word) => word.includes(searchWord));
+  });
+  return imgs;
 }

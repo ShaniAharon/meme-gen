@@ -54,6 +54,11 @@ header h1 {
   list-style: none;
 }
 
+.search-sec {
+  display: flex;
+  justify-content: center;
+}
+
 .meme-editor {
   display: none;
   justify-content: center;

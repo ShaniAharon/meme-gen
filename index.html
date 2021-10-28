@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
   </head>
   <body onload="onInit()">
     <header>
@@ -49,6 +55,15 @@
               </button>
               <button onclick="onRemoveLine()">
                 <img src="/img/trash.png" alt="" />
+              </button>
+            </div>
+            <div class="">
+              <button class="btn-left-arrow" onclick="onNextStickerPage(-1)">
+                <i class="fas fa-angle-left"></i>
+              </button>
+              <ul class="stickers"></ul>
+              <button class="btn-right-arrow" onclick="onNextStickerPage(1)">
+                <i class="fas fa-angle-right"></i>
               </button>
             </div>
           </div>

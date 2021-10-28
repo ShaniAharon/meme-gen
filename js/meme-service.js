@@ -12,6 +12,23 @@ var gImgs = [
   {id: 8, url: 'img/8.jpg', keywords: ['man']},
 ];
 
+var gStickers = [
+  '😇',
+  '🧡',
+  '😍',
+  '😎',
+  '😥',
+  '😁',
+  '😆',
+  '🥶',
+  '🥳',
+  '🐽',
+  '👀',
+  '👄',
+  '🧠',
+  '🦾',
+];
+
 var gMemes = loadFromStorage(MEMES_KEY) || [];
 
 function getImgs() {
@@ -73,9 +90,38 @@ function createNewLine() {
   return line;
 }
 
-// function getMeme() {
-//   return gCurrMeme;
-// }
+//stickers logic
+function createNewSticker(txt) {
+  let sticker = {
+    txt,
+    size: 20,
+    stroke: 'black',
+    color: 'white',
+    x: 50,
+    y: 150,
+  };
+  return sticker;
+}
+
+function getStickers(idx) {
+  const selecteds = [];
+  let maxIdx = idx * 2;
+  if (maxIdx >= gStickers.length - 1) return selecteds;
+  let minIdx = maxIdx - 2;
+  for (let i = minIdx; i <= maxIdx; i++) {
+    selecteds.push(gStickers[i]);
+  }
+  return selecteds;
+}
+
+function getStickersLength() {
+  return gStickers.length;
+}
+
+function addSticker(sticker, memeId) {
+  let meme = getMemeById(memeId);
+  meme.lines.push(createNewSticker(sticker));
+}
 
 function getMemeById(memeId) {
   return gMemes.find((meme) => meme.id === memeId);

@@ -8,6 +8,7 @@ const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 var gStartPos;
 var isDrag = false;
 var toggle = false;
+var gStickerPage = 1;
 
 const elInput = document.querySelector('.insert-text');
 
@@ -45,6 +46,23 @@ function renderMemes() {
   });
   var elMemes = document.querySelector('.memes');
   elMemes.innerHTML = strHtmls.join('');
+}
+
+//render stickers
+function renderStickers(idx) {
+  var stickers = getStickers(idx);
+  if (!stickers.length) {
+    gStickerPage = 1;
+    stickers = getStickers(1);
+  }
+  console.log(stickers);
+  var strHtmls = stickers.map((stick) => {
+    return `
+    <li onclick="onSticker('${stick}')">${stick}</li>
+    `;
+  });
+  var elStick = document.querySelector('.stickers');
+  elStick.innerHTML = strHtmls.join('');
 }
 
 function renderCanvas() {
@@ -101,6 +119,8 @@ function onImgClick(imgId) {
   toggleGallery(false);
   toggleMemes(false);
   toggleAbout(false);
+  toggleSearch(false);
+  renderStickers(1);
   renderCanvas();
 }
 
@@ -111,6 +131,7 @@ function onMemeClick(memeId) {
   toggleGallery(false);
   toggleMemes(false);
   toggleAbout(false);
+  toggleSearch(false);
   renderCanvas();
 }
 
@@ -134,6 +155,11 @@ function toggleAbout(isShow) {
   elAbout.style.display = isShow ? 'flex' : 'none';
 }
 
+function toggleSearch(isShow) {
+  const elSearch = document.querySelector('.search-sec');
+  elSearch.style.display = isShow ? 'flex' : 'none';
+}
+
 function onOpenNav() {
   const nav = document.querySelector('.nav');
   toggle = !toggle;
@@ -147,6 +173,7 @@ function onBackToGallery() {
   toggleEditor(false);
   toggleMemes(false);
   toggleAbout(true);
+  toggleSearch(true);
 }
 
 function onBackToMemes() {
@@ -155,6 +182,7 @@ function onBackToMemes() {
   toggleEditor(false);
   toggleMemes(true);
   toggleAbout(false);
+  toggleSearch(false);
 }
 
 function onUpdateText(inputText) {
@@ -318,4 +346,19 @@ function downloadCanvas(elLink) {
 //search logic
 function renderSearch(inputText) {
   renderGallery(inputText);
+}
+
+//stickers logic
+function onSticker(sticker) {
+  addSticker(sticker, gCurrMeme.id);
+  renderCanvas();
+}
+
+function onNextStickerPage(diff) {
+  if (gStickerPage === 1 && diff === -1) return;
+  gStickerPage += diff;
+  if (gStickerPage >= getStickersLength() - 1) {
+    gStickerPage = 1;
+  }
+  renderStickers(gStickerPage);
 }

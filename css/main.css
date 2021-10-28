@@ -328,6 +328,26 @@ footer {
   margin-inline-start: 16px;
 }
 
+.key-words li {
+  padding-inline-end: 10px;
+}
+
+.key-words a {
+  text-decoration: none;
+  color: #009688;
+  font-size: 16px;
+}
+
+/* HELPERS */
+
+.flex {
+  display: flex;
+}
+
+.list-style {
+  list-style: none;
+}
+
 @media (max-width: 740px) {
   .nav {
     display: none;
@@ -405,5 +425,9 @@ footer {
   .btn-gallery,
   .btn-memes {
     width: 160px;
+  }
+
+  .key-words-container {
+    margin-inline-start: -24px !important;
   }
 }

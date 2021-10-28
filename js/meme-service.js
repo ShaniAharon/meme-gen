@@ -12,6 +12,8 @@ var gImgs = [
   {id: 8, url: 'img/8.jpg', keywords: ['man']},
 ];
 
+var gKeyWordsMap = {trump: 0, funny: 0, dog: 0, cat: 0};
+
 var gStickers = [
   '😇',
   '🧡',
@@ -261,9 +263,19 @@ function whichLineClicked(pos, memeId) {
 
 //search logic
 function getSortBySearchImgs(searchWord) {
+  let lowerCaseWord = searchWord.toLowerCase();
+  //implemnt map object to increment when a word search
+  if (gKeyWordsMap[lowerCaseWord] !== undefined) {
+    gKeyWordsMap[lowerCaseWord]++;
+  }
+
   let imgs = gImgs.filter((img) => {
     let words = img.keywords;
-    return words.some((word) => word.includes(searchWord));
+    return words.some((word) => word.includes(lowerCaseWord));
   });
   return imgs;
+}
+
+function getKeyWordsMap() {
+  return gKeyWordsMap;
 }

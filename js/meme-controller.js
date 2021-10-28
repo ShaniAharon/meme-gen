@@ -297,14 +297,12 @@ function onDown(ev) {
   console.log(gCurrMeme.lines[0].x, gCurrMeme.lines[0].y);
   if (!isLineClicked(pos, gCurrMeme.id)) return;
   console.log('hit');
-  // setCircleDrag(true);
   isDrag = true;
   gStartPos = pos;
   document.body.style.cursor = 'grabbing';
 }
 
 function onMove(ev) {
-  // const circle = getCircle();
   if (isDrag) {
     const pos = getEvPos(ev);
     const dx = pos.x - gStartPos.x;
@@ -345,6 +343,15 @@ function downloadCanvas(elLink) {
 //search logic
 function renderSearch(inputText) {
   renderGallery(inputText);
+}
+
+function onWordClicked(elWord) {
+  const wordText = elWord.innerText.toLowerCase();
+  let keyWordsMap = getKeyWordsMap();
+  renderGallery(wordText);
+  var strFontSize = elWord.style.fontSize;
+  var size = +strFontSize.substring(0, strFontSize.indexOf('p'));
+  elWord.style.fontSize = size + keyWordsMap[wordText] + 'px';
 }
 
 //stickers logic

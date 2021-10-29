@@ -108,6 +108,7 @@ function renderCanvas() {
   };
 }
 
+//fix when enter a img or meme put the selected line as the line with the box on
 function onImgClick(imgId) {
   gCurrMeme = createMeme(imgId);
   toggleEditor(true);
@@ -189,7 +190,9 @@ function onBackToMemes() {
 }
 
 function onUpdateText(inputText) {
-  updateText(inputText, gSelectedLine, gCurrMeme.id);
+  //fixed a bug when gselected is not the marked line
+  //used the obj selectedLineIdx insted , fixed
+  updateText(inputText, gCurrMeme.id);
   renderCanvas();
 }
 
@@ -292,10 +295,10 @@ function onClick(ev) {
   const pos = getEvPos(ev);
   const lineIdx = whichLineClicked(pos, gCurrMeme.id);
   if (lineIdx < 0) {
-    //flag to remove the black selected box when clicked aside on the canvas
-    //user can do it before the save soo it will save clean with no box
-    isClickedOff = true;
-    renderCanvas();
+    // //flag to remove the black selected box when clicked aside on the canvas
+    // //user can do it before the save soo it will save clean with no box
+    // isClickedOff = true;
+    // renderCanvas();
     return;
   }
   gSelectedLine = setSelectedLineIdx(lineIdx, gCurrMeme.id);

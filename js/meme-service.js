@@ -136,9 +136,11 @@ function getMemeById(memeId) {
   return gMemes.find((meme) => meme.id === memeId);
 }
 
-function updateText(inputText, lineIdx, memeId) {
+function updateText(inputText, memeId) {
+  //add a change insted of using gselected line used selectedLineIdx of the meme obj
+  //this change fix a bug
   let meme = getMemeById(memeId);
-  meme.lines[lineIdx].txt = inputText;
+  meme.lines[meme.selectedLineIdx].txt = inputText;
 }
 
 function updateSize(diff, lineIdx, memeId) {

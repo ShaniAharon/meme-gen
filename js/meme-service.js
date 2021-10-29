@@ -141,6 +141,7 @@ function updateText(inputText, memeId) {
   //add a change insted of using gselected line used selectedLineIdx of the meme obj
   //this change fix a bug
   let meme = getMemeById(memeId);
+  if (!meme.lines.length) return;
   meme.lines[meme.selectedLineIdx].txt = inputText;
 }
 

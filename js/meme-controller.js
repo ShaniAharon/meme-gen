@@ -227,9 +227,12 @@ function onSwitchLine() {
 function onAddLine() {
   addLine(gCurrMeme.id);
   renderCanvas();
+  elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
 }
 
 function onRemoveLine() {
+  //when remove a line need to change selected line , cause an error
+  //and return in isLineClicked if there are no lines, error
   removeLine(gCurrMeme.id);
   renderCanvas();
 }

@@ -130,6 +130,7 @@ function getStickersLength() {
 function addSticker(sticker, memeId) {
   let meme = getMemeById(memeId);
   meme.lines.push(createNewSticker(sticker));
+  // meme.selectedLineIdx = meme.lines.length - 1;
 }
 
 function getMemeById(memeId) {
@@ -156,12 +157,14 @@ function moveTextByDiff(diff, lineIdx, memeId) {
 function addLine(memeId) {
   let meme = getMemeById(memeId);
   meme.lines.push(createNewLine());
+  meme.selectedLineIdx = meme.lines.length - 1;
 }
 
 function removeLine(memeId) {
   let meme = getMemeById(memeId);
   if (!meme.lines.length) return;
   meme.lines.splice(meme.selectedLineIdx, 1);
+  meme.selectedLineIdx = meme.lines.length - 1;
 }
 
 function alignLeft(memeId) {
@@ -225,6 +228,7 @@ function _saveMemesToStorage() {
 
 function isLineClicked(pos, memeId) {
   let meme = getMemeById(memeId);
+  if (!meme.lines.length) return;
   console.log(meme.selectedLineIdx);
   var lineX = meme.lines[meme.selectedLineIdx].x;
   var lineY = meme.lines[meme.selectedLineIdx].y;

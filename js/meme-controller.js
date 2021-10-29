@@ -130,7 +130,9 @@ function onMemeClick(memeId) {
   toggleAbout(false);
   toggleSearch(false);
   renderCanvas();
-  elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
+  if (gCurrMeme.lines.length) {
+    elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
+  }
 }
 
 function toggleEditor(isShow) {

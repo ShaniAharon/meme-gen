@@ -108,7 +108,6 @@ function renderCanvas() {
   };
 }
 
-//fix when enter a img or meme put the selected line as the line with the box on
 function onImgClick(imgId) {
   gCurrMeme = createMeme(imgId);
   toggleEditor(true);
@@ -132,7 +131,7 @@ function onMemeClick(memeId) {
   renderCanvas();
   if (gCurrMeme.lines.length) {
     elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
-  }
+  } else elInput.value = '';
 }
 
 function toggleEditor(isShow) {
@@ -401,4 +400,25 @@ async function onShareCanvas() {
     files: filesArray,
   };
   navigator.share(shareData);
+}
+
+//import user file pic
+//adjest it to fit the code logic
+function onImgInput(ev) {
+  loadImageFromInput(ev, onImgClick);
+}
+
+function loadImageFromInput(ev, onImageReady) {
+  var reader = new FileReader();
+  console.log(reader);
+
+  reader.onload = function (event) {
+    var img = new Image();
+    img.onload = onImageReady.bind(null, getLastId());
+    if (!reader.readyState) return;
+    img.src = event.target.result;
+    createImg(img.src);
+  };
+  if (!ev.target.files.length) return;
+  reader.readAsDataURL(ev.target.files[0]);
 }

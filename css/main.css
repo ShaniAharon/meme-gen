@@ -355,6 +355,11 @@ footer {
   font-size: 16px;
 }
 
+.file-input {
+  width: 77px;
+  margin-inline-end: 10px;
+}
+
 /* HELPERS */
 
 .flex {
@@ -384,6 +389,11 @@ footer {
 
   .meme-editor {
     flex-direction: column;
+  }
+
+  .file-input {
+    width: 77px;
+    margin-inline-start: 10px;
   }
 
   .middle-container {

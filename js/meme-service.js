@@ -1,7 +1,8 @@
 'use strict';
 
 const MEMES_KEY = 'memes';
-var gImgs = [
+const IMGS_KEY = 'imgs';
+var gImgs = loadFromStorage(IMGS_KEY) || [
   {id: 1, url: 'img/1.jpg', keywords: ['trump,funny']},
   {id: 2, url: 'img/2.jpg', keywords: ['happy,puppy,dog']},
   {id: 3, url: 'img/3.jpg', keywords: ['happy,puppy,dog,baby']},
@@ -12,12 +13,14 @@ var gImgs = [
   {id: 8, url: 'img/8.jpg', keywords: ['man']},
   {id: 9, url: 'img/9.jpg', keywords: ['kid', 'funny']},
   {id: 10, url: 'img/10.jpg', keywords: ['obama']},
-  {id: 12, url: 'img/12.jpg', keywords: ['haim']},
-  {id: 13, url: 'img/13.jpg', keywords: ['cup', 'man']},
-  {id: 14, url: 'img/14.jpg', keywords: ['man,matrix']},
-  {id: 15, url: 'img/15.jpg', keywords: ['man,circle']},
-  {id: 16, url: 'img/16.jpg', keywords: ['man,old']},
+  {id: 11, url: 'img/12.jpg', keywords: ['haim']},
+  {id: 12, url: 'img/13.jpg', keywords: ['cup', 'man']},
+  {id: 13, url: 'img/14.jpg', keywords: ['man,matrix']},
+  {id: 14, url: 'img/15.jpg', keywords: ['man,circle']},
+  {id: 15, url: 'img/16.jpg', keywords: ['man,old']},
 ];
+
+var gId = gImgs.length + 1;
 
 var gKeyWordsMap = {trump: 0, funny: 0, dog: 0, cat: 0};
 
@@ -50,6 +53,21 @@ function getMemes() {
 
 function getImgById(imgId) {
   return gImgs.find((img) => img.id === imgId);
+}
+
+function getLastId() {
+  return gId;
+}
+
+function createImg(url) {
+  let img = {
+    id: gId++,
+    url,
+    keywords: ['new'],
+  };
+  gImgs.push(img);
+  _saveImgsToStorage();
+  return img.id;
 }
 
 function createMeme(imgId) {
@@ -216,6 +234,10 @@ function saveMeme() {
   _saveMemesToStorage();
 }
 
+// function saveImgs() {
+//   _saveImgsToStorage();
+// }
+
 function updateDataUrl(dataUrl, memeId) {
   let meme = getMemeById(memeId);
   meme.dataUrl = dataUrl;
@@ -223,6 +245,10 @@ function updateDataUrl(dataUrl, memeId) {
 
 function _saveMemesToStorage() {
   saveToStorage(MEMES_KEY, gMemes);
+}
+
+function _saveImgsToStorage() {
+  saveToStorage(IMGS_KEY, gImgs);
 }
 
 //drag logic

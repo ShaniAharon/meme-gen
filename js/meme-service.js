@@ -79,7 +79,7 @@ function createMeme(imgId) {
     lines: [
       {
         txt: 'I never eat Falafel',
-        size: 20,
+        size: 30,
         align: 'left',
         font: 'impact',
         stroke: 'black',
@@ -89,7 +89,7 @@ function createMeme(imgId) {
       },
       {
         txt: 'I never eat Falafel2',
-        size: 20,
+        size: 30,
         align: 'left',
         font: 'impact',
         stroke: 'black',
@@ -106,7 +106,7 @@ function createMeme(imgId) {
 function createNewLine() {
   let line = {
     txt: 'I never eat Falafel',
-    size: 20,
+    size: 30,
     align: 'left',
     font: 'impact',
     stroke: 'black',

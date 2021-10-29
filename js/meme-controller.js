@@ -288,6 +288,7 @@ function addMouseListeners() {
 function addTouchListeners() {
   gCanvas.addEventListener('touchmove', onMove);
   gCanvas.addEventListener('touchstart', onDown);
+  gCanvas.addEventListener('touchend', onClick);
   gCanvas.addEventListener('touchend', onUp);
 }
 

@@ -44,6 +44,7 @@ header h1 {
 
 .my-canvas {
   user-select: none;
+  border: 1px solid black;
 }
 
 .btn-gallery {

@@ -279,7 +279,7 @@ function onSave() {
     updateDataUrl(dataUrl, gCurrMeme.id);
     saveMeme();
     onBackToMemes();
-  }, 500);
+  }, 200);
 }
 
 //drag logic

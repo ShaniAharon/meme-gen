@@ -101,6 +101,7 @@ header h1 {
 .search-sec {
   display: flex;
   justify-content: center;
+  /* flex-wrap: wrap; */
   margin-top: 40px;
   margin-bottom: 20px;
   /* background-color: #009688; */
@@ -124,6 +125,7 @@ header h1 {
   display: flex;
   list-style: none;
   margin-top: 10px;
+  margin-inline-start: 5px;
 }
 
 .stickers li {
@@ -144,6 +146,7 @@ header h1 {
   display: inline;
   position: relative;
   top: 14px;
+  margin-inline-start: 6px;
 }
 
 .line-controls {
@@ -404,6 +407,10 @@ footer {
 
 .file-input:hover {
   color: salmon;
+}
+
+input[type='color'] {
+  width: 27px;
 }
 
 /* HELPERS */

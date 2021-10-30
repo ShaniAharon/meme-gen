@@ -148,7 +148,7 @@ function getStickersLength() {
 function addSticker(sticker, memeId) {
   let meme = getMemeById(memeId);
   meme.lines.push(createNewSticker(sticker));
-  // meme.selectedLineIdx = meme.lines.length - 1;
+  meme.selectedLineIdx = meme.lines.length - 1;
 }
 
 function getMemeById(memeId) {

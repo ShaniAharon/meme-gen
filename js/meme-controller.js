@@ -6,12 +6,13 @@ var gSelectedLine = 0;
 var gCurrMeme;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 var gStartPos;
-var isDrag = false;
-var toggle = false;
+var gIsDrag = false;
+var gToggle = false;
 var gStickerPage = 1;
-var isClickedOff = false;
+var gIsClickedOff = false;
 
 const elInput = document.querySelector('.insert-text');
+const elSearchInput = document.querySelector('.insert-search');
 
 function onInit() {
   renderGallery();
@@ -93,7 +94,7 @@ function renderCanvas() {
       gCurrMeme.lines[i].lineHeight = height;
       gCurrMeme.lines[i].lineWidth = width;
 
-      if (gCurrMeme.selectedLineIdx === i && !isClickedOff) {
+      if (gCurrMeme.selectedLineIdx === i && !gIsClickedOff) {
         gCtx.beginPath();
         gCtx.rect(
           gCurrMeme.lines[i].x - 10,
@@ -104,7 +105,7 @@ function renderCanvas() {
         gCtx.stroke();
       }
     }
-    isClickedOff = false;
+    gIsClickedOff = false;
   };
 }
 
@@ -179,6 +180,8 @@ function onBackToGallery() {
   toggleMemes(false);
   toggleAbout(true);
   toggleSearch(true);
+  renderGallery();
+  elSearchInput.value = '';
 }
 
 function onBackToMemes() {
@@ -268,7 +271,7 @@ function onFont(font) {
 }
 
 function onSave() {
-  isClickedOff = true;
+  gIsClickedOff = true;
   renderCanvas();
   //remove all black boxes before the save
   setTimeout(function () {
@@ -312,13 +315,13 @@ function onClick(ev) {
 function onDown(ev) {
   const pos = getEvPos(ev);
   if (!isLineClicked(pos, gCurrMeme.id)) return;
-  isDrag = true;
+  gIsDrag = true;
   gStartPos = pos;
   document.body.style.cursor = 'grabbing';
 }
 
 function onMove(ev) {
-  if (isDrag) {
+  if (gIsDrag) {
     const pos = getEvPos(ev);
     const dx = pos.x - gStartPos.x;
     const dy = pos.y - gStartPos.y;
@@ -329,7 +332,7 @@ function onMove(ev) {
 }
 
 function onUp() {
-  isDrag = false;
+  gIsDrag = false;
   document.body.style.cursor = 'auto';
 }
 

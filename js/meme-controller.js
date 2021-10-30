@@ -302,9 +302,9 @@ function onClick(ev) {
   const lineIdx = whichLineClicked(pos, gCurrMeme.id);
   if (lineIdx < 0) {
     // //flag to remove the black selected box when clicked aside on the canvas
-    // //user can do it before the save soo it will save clean with no box
-    // isClickedOff = true;
-    // renderCanvas();
+    // //user can do it before the save/share soo it will save clean with no box
+    gIsClickedOff = true;
+    renderCanvas();
     return;
   }
   gSelectedLine = setSelectedLineIdx(lineIdx, gCurrMeme.id);

@@ -460,7 +460,9 @@ input[type='color'] {
 
   .meme-editor {
     flex-direction: column;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
+    /* margin: 0 auto; */
     margin-top: 50px;
   }
 

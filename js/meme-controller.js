@@ -373,6 +373,7 @@ function onWordClicked(elWord) {
 function onSticker(sticker) {
   addSticker(sticker, gCurrMeme.id);
   renderCanvas();
+  elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
 }
 
 function onNextStickerPage(diff) {

@@ -15,21 +15,35 @@
   </head>
   <body onload="onInit()">
     <header>
-      <h1>my Memes</h1>
+      <h1 data-trans="title">my Memes</h1>
       <div class="header-buttons">
         <button class="btn-burger" onclick="onOpenNav()">&#9776;</button>
         <div class="nav">
           <ul>
             <li>
+              <label for="lang" class="lang-label" data-trans="lang-pick"
+                >Lang:
+              </label>
+              <select name="lang" class="lang" onchange="onSetLang(this.value)">
+                <option value="en">English</option>
+                <option value="he">Hebrew</option>
+              </select>
+            </li>
+            <li>
               <button
                 class="btn-gallery"
+                data-trans="btn-gallery"
                 onclick="onBackToGallery(), onCloseNav()"
               >
                 Gallery
               </button>
             </li>
             <li>
-              <button class="btn-memes" onclick="onBackToMemes(), onCloseNav()">
+              <button
+                class="btn-memes"
+                data-trans="btn-memes"
+                onclick="onBackToMemes(), onCloseNav()"
+              >
                 Memes
               </button>
             </li>
@@ -47,6 +61,7 @@
               oninput="onUpdateText(this.value)"
               class="insert-text search"
               type="text"
+              data-trans="input-text"
               placeholder="Enter text"
             />
             <div class="below-sec">
@@ -98,7 +113,7 @@
                 type="color"
                 onchange="onPickColor(this.value)"
               />
-              <label for="stroke">stroke</label>
+              <label data-trans="stroke" for="stroke">stroke</label>
               <input
                 type="color"
                 id="stroke"
@@ -116,10 +131,19 @@
               class="download"
               onclick="downloadCanvas(this)"
               download=""
+              data-trans="btn-download"
               >Download</a
             >
-            <button class="btn-share" onclick="onShareCanvas()">Share</button>
-            <button class="btn-save" onclick="onSave()">Save</button>
+            <button
+              class="btn-share"
+              data-trans="btn-share"
+              onclick="onShareCanvas()"
+            >
+              Share
+            </button>
+            <button class="btn-save" data-trans="btn-save" onclick="onSave()">
+              Save
+            </button>
           </div>
         </div>
       </section>
@@ -139,23 +163,36 @@
             placeholder="Search"
             type="text"
             class="search"
+            data-trans="input-search"
             oninput="renderSearch(this.value)"
           />
         </div>
         <div class="key-words-container">
           <ul class="key-words flex list-style">
             <li>
-              <a href="#" style="font-size: 16px" onclick="onWordClicked(this)"
+              <a
+                href="#"
+                style="font-size: 16px"
+                data-trans="dog"
+                onclick="onWordClicked(this)"
                 >dog</a
               >
             </li>
             <li>
-              <a href="#" style="font-size: 16px" onclick="onWordClicked(this)"
+              <a
+                href="#"
+                data-trans="cat"
+                style="font-size: 16px"
+                onclick="onWordClicked(this)"
                 >cat</a
               >
             </li>
             <li>
-              <a href="#" style="font-size: 16px" onclick="onWordClicked(this)"
+              <a
+                href="#"
+                data-trans="trump"
+                style="font-size: 16px"
+                onclick="onWordClicked(this)"
                 >trump</a
               >
             </li>
@@ -172,7 +209,7 @@
     <section class="about">
       <img src="img/Me.PNG" alt="" />
       <div class="info">
-        <h1>Shani Aharon</h1>
+        <h1 data-trans="my-name">Shani Aharon</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis,
           eius magni consequatur accusamus quisquam at dolorum, non aperiam
@@ -194,11 +231,12 @@
     </section>
 
     <footer>
-      <p>all rights reserevd shani aharon</p>
+      <p data-trans="rights">all rights reserved shani aharon</p>
     </footer>
 
     <script src="js/util-service.js"></script>
     <script src="js/storage-service.js"></script>
+    <script src="js/i18n-service.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
   </body>

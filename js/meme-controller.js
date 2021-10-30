@@ -361,7 +361,14 @@ function renderSearch(inputText) {
 }
 
 function onWordClicked(elWord) {
-  const wordText = elWord.innerText.toLowerCase();
+  let lang = getLang();
+  let wordText = elWord.innerText.toLowerCase();
+  if (lang === 'he') {
+    console.log(wordText);
+    if (wordText === 'כלב') wordText = 'dog';
+    else if (wordText === 'חתול') wordText = 'cat';
+    else if (wordText === 'דונלד') wordText = 'trump';
+  }
   let keyWordsMap = getKeyWordsMap();
   renderGallery(wordText);
   var strFontSize = elWord.style.fontSize;
@@ -419,4 +426,18 @@ function loadImageFromInput(ev, onImageReady) {
   };
   if (!ev.target.files.length) return;
   reader.readAsDataURL(ev.target.files[0]);
+}
+
+// lang
+function onSetLang(lang) {
+  setLang(lang);
+  // TODO: if lang is hebrew add RTL class to document.body
+  // var elBody = document.querySelector('body');
+  // //add rtl class
+  // if (lang === 'he') {
+  //   elBody.classList.add('rtl');
+  // } else {
+  //   elBody.classList.remove('rtl');
+  // }
+  doTrans();
 }

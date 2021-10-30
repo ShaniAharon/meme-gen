@@ -460,6 +460,8 @@ input[type='color'] {
 
   .meme-editor {
     flex-direction: column;
+    margin: auto;
+    margin-top: 50px;
   }
 
   .file-input {
@@ -532,5 +534,9 @@ input[type='color'] {
   .lang {
     margin-inline-end: 15px;
     margin-bottom: 10px;
+  }
+
+  .my-canvas {
+    width: 310px;
   }
 }

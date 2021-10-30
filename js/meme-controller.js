@@ -375,7 +375,9 @@ function onWordClicked(elWord) {
   let keyWordsMap = getKeyWordsMap();
   renderGallery(wordText);
   var strFontSize = elWord.style.fontSize;
+  console.log(strFontSize);
   var size = +strFontSize.substring(0, strFontSize.indexOf('p'));
+  if (size >= 37) return;
   elWord.style.fontSize = size + keyWordsMap[wordText] + 'px';
 }
 

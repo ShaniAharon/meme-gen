@@ -21,7 +21,9 @@
         <div class="nav">
           <ul>
             <li>
-              <label for="lang" data-trans="lang-pick">Lang: </label>
+              <label for="lang" class="lang-label" data-trans="lang-pick"
+                >Lang:
+              </label>
               <select name="lang" class="lang" onchange="onSetLang(this.value)">
                 <option value="en">English</option>
                 <option value="he">Hebrew</option>
@@ -161,6 +163,7 @@
             placeholder="Search"
             type="text"
             class="search"
+            data-trans="input-search"
             oninput="renderSearch(this.value)"
           />
         </div>
@@ -206,7 +209,7 @@
     <section class="about">
       <img src="img/Me.PNG" alt="" />
       <div class="info">
-        <h1>Shani Aharon</h1>
+        <h1 data-trans="my-name">Shani Aharon</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis,
           eius magni consequatur accusamus quisquam at dolorum, non aperiam
@@ -228,7 +231,7 @@
     </section>
 
     <footer>
-      <p>all rights reserevd shani aharon</p>
+      <p data-trans="rights">all rights reserved shani aharon</p>
     </footer>
 
     <script src="js/util-service.js"></script>

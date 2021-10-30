@@ -21,10 +21,9 @@ var gTrans = {
     en: 'Enter text',
     he: 'הכנס טקסט',
   },
-  'book-img': {
-    en: 'Img',
-    es: 'Mis Cosas Por Hacer',
-    he: 'תמונה',
+  'input-search': {
+    en: 'Search',
+    he: 'חיפוש',
   },
   stroke: {
     en: 'Stroke',
@@ -54,10 +53,13 @@ var gTrans = {
     en: 'Trump ',
     he: 'דונלד',
   },
-  add: {
-    en: 'Add',
-    es: 'Aggregar',
-    he: 'הוסף',
+  'my-name': {
+    en: 'Shani Aharon',
+    he: 'שני אהרון',
+  },
+  rights: {
+    en: 'All rights reserved shani aharon ',
+    he: 'כל הזכויות שמורות שני אהרון',
   },
 };
 

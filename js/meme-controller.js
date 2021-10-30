@@ -232,8 +232,6 @@ function onAddLine() {
 }
 
 function onRemoveLine() {
-  //when remove a line need to change selected line , cause an error
-  //and return in isLineClicked if there are no lines, error
   removeLine(gCurrMeme.id);
   renderCanvas();
 }
@@ -403,7 +401,6 @@ async function onShareCanvas() {
 }
 
 //import user file pic
-//adjest it to fit the code logic
 function onImgInput(ev) {
   loadImageFromInput(ev, onImgClick);
 }

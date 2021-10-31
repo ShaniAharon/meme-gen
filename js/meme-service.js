@@ -103,7 +103,7 @@ function createMeme(imgId) {
   return meme;
 }
 
-function createNewLine() {
+function _createNewLine() {
   let line = {
     txt: 'I never eat Falafel',
     size: 30,
@@ -118,7 +118,7 @@ function createNewLine() {
 }
 
 //stickers logic
-function createNewSticker(txt) {
+function _createNewSticker(txt) {
   let sticker = {
     txt,
     size: 30,
@@ -147,7 +147,7 @@ function getStickersLength() {
 
 function addSticker(sticker, memeId) {
   let meme = getMemeById(memeId);
-  meme.lines.push(createNewSticker(sticker));
+  meme.lines.push(_createNewSticker(sticker));
   meme.selectedLineIdx = meme.lines.length - 1;
 }
 
@@ -156,8 +156,6 @@ function getMemeById(memeId) {
 }
 
 function updateText(inputText, memeId) {
-  //add a change insted of using gselected line used selectedLineIdx of the meme obj
-  //this change fix a bug
   let meme = getMemeById(memeId);
   if (!meme.lines.length) return;
   meme.lines[meme.selectedLineIdx].txt = inputText;
@@ -175,7 +173,7 @@ function moveTextByDiff(diff, lineIdx, memeId) {
 
 function addLine(memeId) {
   let meme = getMemeById(memeId);
-  meme.lines.push(createNewLine());
+  meme.lines.push(_createNewLine());
   meme.selectedLineIdx = meme.lines.length - 1;
 }
 
@@ -233,10 +231,6 @@ function setSelectedLineIdx(idx, memeId) {
 function saveMeme() {
   _saveMemesToStorage();
 }
-
-// function saveImgs() {
-//   _saveImgsToStorage();
-// }
 
 function updateDataUrl(dataUrl, memeId) {
   let meme = getMemeById(memeId);

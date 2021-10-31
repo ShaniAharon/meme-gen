@@ -1,7 +1,7 @@
 'use strict';
 
-var gCanvas = document.querySelector('canvas');
-var gCtx = gCanvas.getContext('2d');
+var gCanvas;
+var gCtx;
 var gSelectedLine = 0;
 var gCurrMeme;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
@@ -11,10 +11,14 @@ var gToggle = false;
 var gStickerPage = 1;
 var gIsClickedOff = false;
 
-const elInput = document.querySelector('.insert-text');
-const elSearchInput = document.querySelector('.insert-search');
+var elInput;
+var elSearchInput;
 
 function onInit() {
+  gCanvas = document.querySelector('canvas');
+  gCtx = gCanvas.getContext('2d');
+  elInput = document.querySelector('.insert-text');
+  elSearchInput = document.querySelector('.insert-search');
   renderGallery();
   addMouseListeners();
   addTouchListeners();
@@ -224,7 +228,6 @@ function onSwitchLine() {
   gSelectedLine++;
   gSelectedLine = setSelectedLineIdx(gSelectedLine, gCurrMeme.id);
   elInput.value = gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt;
-
   renderCanvas();
 }
 
@@ -283,6 +286,7 @@ function onSave() {
 }
 
 //drag logic
+//make function that create the eventlist
 function addMouseListeners() {
   gCanvas.addEventListener('mousemove', onMove);
   gCanvas.addEventListener('mousedown', onDown);
@@ -296,7 +300,7 @@ function addTouchListeners() {
   gCanvas.addEventListener('touchend', onClick);
   gCanvas.addEventListener('touchend', onUp);
 }
-
+//better name
 function onClick(ev) {
   const pos = getEvPos(ev);
   const lineIdx = whichLineClicked(pos, gCurrMeme.id);
@@ -363,6 +367,7 @@ function renderSearch(inputText) {
   renderGallery(inputText);
 }
 
+//dyanmic keywords
 function onWordClicked(elWord) {
   let lang = getLang();
   let wordText = elWord.innerText.toLowerCase();

@@ -59,6 +59,10 @@ function getLastId() {
   return gId;
 }
 
+function getSelectedLine(meme) {
+  return meme.lines[meme.selectedLineIdx];
+}
+
 function createImg(url) {
   let img = {
     id: gId++,
@@ -158,7 +162,7 @@ function getMemeById(memeId) {
 function updateText(inputText, memeId) {
   let meme = getMemeById(memeId);
   if (!meme.lines.length) return;
-  meme.lines[meme.selectedLineIdx].txt = inputText;
+  getSelectedLine(meme).txt = inputText;
 }
 
 function updateSize(diff, lineIdx, memeId) {
@@ -186,34 +190,33 @@ function removeLine(memeId) {
 
 function alignLeft(memeId) {
   let meme = getMemeById(memeId);
-  meme.lines[meme.selectedLineIdx].x = 15;
+  getSelectedLine(meme).x = 15;
 }
 
 function alignRight(memeId) {
   let meme = getMemeById(memeId);
-  meme.lines[meme.selectedLineIdx].x =
-    285 - meme.lines[meme.selectedLineIdx].lineWidth;
+  meme.lines[meme.selectedLineIdx].x = 285 - getSelectedLine(meme).lineWidth;
 }
 
 function alignCenter(memeId) {
   let meme = getMemeById(memeId);
   meme.lines[meme.selectedLineIdx].x =
-    150 - meme.lines[meme.selectedLineIdx].lineWidth / 2;
+    150 - getSelectedLine(meme).lineWidth / 2;
 }
 
 function setLineColor(memeId, color) {
   let meme = getMemeById(memeId);
-  meme.lines[meme.selectedLineIdx].color = color;
+  getSelectedLine(meme).color = color;
 }
 
 function setLineStrokeColor(memeId, color) {
   let meme = getMemeById(memeId);
-  meme.lines[meme.selectedLineIdx].stroke = color;
+  getSelectedLine(meme).stroke = color;
 }
 
 function setFont(font, memeId) {
   let meme = getMemeById(memeId);
-  meme.lines[meme.selectedLineIdx].font = font;
+  getSelectedLine(meme).font = font;
 }
 
 function setSelectedImg(imgId, memeId) {
@@ -251,10 +254,10 @@ function isLineClicked(pos, memeId) {
   let meme = getMemeById(memeId);
   if (!meme.lines.length) return;
   console.log(meme.selectedLineIdx);
-  var lineX = meme.lines[meme.selectedLineIdx].x;
-  var lineY = meme.lines[meme.selectedLineIdx].y;
-  var lineWidth = meme.lines[meme.selectedLineIdx].lineWidth;
-  var lineHeight = meme.lines[meme.selectedLineIdx].lineHeight;
+  var lineX = getSelectedLine(meme).x;
+  var lineY = getSelectedLine(meme).y;
+  var lineWidth = getSelectedLine(meme).lineWidth;
+  var lineHeight = getSelectedLine(meme).lineHeight;
   return (
     lineX <= pos.x &&
     lineX + lineWidth >= pos.x &&
@@ -266,8 +269,8 @@ function isLineClicked(pos, memeId) {
 
 function moveLine(dx, dy, memeId) {
   let meme = getMemeById(memeId);
-  meme.lines[meme.selectedLineIdx].x += dx;
-  meme.lines[meme.selectedLineIdx].y += dy;
+  getSelectedLine(meme).x += dx;
+  getSelectedLine(meme).y += dy;
 }
 
 function whichLineClicked(pos, memeId) {

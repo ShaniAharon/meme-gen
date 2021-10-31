@@ -5,6 +5,11 @@
 
 body {
   margin: 0;
+  /* background-image: url('https://images.unsplash.com/photo-1557683304-673a23048d34?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGJhY2tncm91bmR8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+  background-repeat: no-repeat;
+  background-size: cover; */
+  font-family: Helvetica, sans-serif;
+  background-color: #98c4e0;
 }
 
 header {
@@ -13,7 +18,7 @@ header {
   align-items: center;
   height: 60px;
   color: aliceblue;
-  background-color: aqua;
+  background-color: #2f86a6;
   box-shadow: 0 0 25px 0 black;
 }
 
@@ -31,11 +36,11 @@ header h1 {
 .header-buttons button {
   padding: 6px;
   border-radius: 5%;
-  background-color: rgb(19, 18, 18);
+  background-color: #30336b;
   font-size: large;
   font-weight: bold;
   cursor: pointer;
-  color: rgb(151, 151, 233);
+  color: whitesmoke;
 }
 
 .header-buttons button:hover {
@@ -116,18 +121,21 @@ header h1 {
   margin-top: 40px;
   margin-bottom: 20px;
   /* background-color: #009688; */
-  background-image: url('https://media.istockphoto.com/photos/panel-of-hexagons-tech-modern-background-picture-id607269184?b=1&k=20&m=607269184&s=170667a&w=0&h=2lLmx6nuX9lUzffDdG_kQ_RwPMMw6-jLxMXE6IiPaVs=');
+  /* background-image: url('https://media.istockphoto.com/photos/panel-of-hexagons-tech-modern-background-picture-id607269184?b=1&k=20&m=607269184&s=170667a&w=0&h=2lLmx6nuX9lUzffDdG_kQ_RwPMMw6-jLxMXE6IiPaVs='); */
+  background-color: #30336b;
   margin-inline-end: 30%;
   margin-inline-start: 30%;
+  border-radius: 14px;
+
   /* background-color: aquamarine; */
-  border: 2px solid salmon;
+  /* border: 2px solid salmon; */
   padding: 16px;
 }
 
 .meme-editor {
   display: none;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 120px;
   margin-inline-end: 10%;
   margin-inline-start: 10%;
 }
@@ -173,9 +181,9 @@ header h1 {
   margin-top: 10px;
   padding: 20px;
   /* background-color: gainsboro; */
-  background-image: url('https://images.unsplash.com/photo-1614587396292-8e7aefcee7f6?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDYwfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
+  /* background-image: url('https://images.unsplash.com/photo-1614587396292-8e7aefcee7f6?ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDYwfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 .image-gallery img {
@@ -199,9 +207,9 @@ header h1 {
   margin-inline-start: 10%;
   margin-top: 30px;
   padding: 20px;
-  background-image: url('https://media.istockphoto.com/photos/blue-brush-strokes-in-horizontal-background-picture-id471620647?b=1&k=20&m=471620647&s=170667a&w=0&h=6r36Xmec_igdAVtL6l41D-miBTkdA2S_ZttFMVMk0Fk=');
+  /* background-image: url('https://media.istockphoto.com/photos/blue-brush-strokes-in-horizontal-background-picture-id471620647?b=1&k=20&m=471620647&s=170667a&w=0&h=6r36Xmec_igdAVtL6l41D-miBTkdA2S_ZttFMVMk0Fk=');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 
 .saved-memes img {
@@ -215,7 +223,7 @@ header h1 {
 
 /* can change it */
 .saved-memes img:hover {
-  box-shadow: 0 5px 5px 5px rgb(173, 85, 85);
+  box-shadow: 0 5px 5px 5px #2f86a6;
   padding: 20px;
   cursor: pointer;
 }
@@ -274,7 +282,7 @@ footer {
   align-items: center;
   margin-top: 40vh;
   height: 80px;
-  background-color: aqua;
+  background-color: #2a8eb3;
   text-align: center;
 }
 
@@ -286,7 +294,7 @@ footer {
   top: 60px;
   left: 0;
   z-index: 1;
-  background-color: aqua;
+  background-color: #2d738d;
   height: 140px;
   width: 250px;
   transition: 0.5s ease-in-out;
@@ -296,7 +304,11 @@ footer {
 
 .line-controls {
   justify-content: space-around;
-  margin-left: 20px;
+  margin-left: 80px;
+  padding: 16px;
+  border-radius: 14px;
+  background-color: #2f86a6;
+  border: 2px solid #009688;
 }
 
 .line-controls button {
@@ -319,7 +331,7 @@ footer {
 .below-sec {
   display: flex;
   justify-content: space-around;
-  margin-block-start: 20px;
+  margin-block-start: 7px;
 }
 
 .line-controls img {
@@ -329,7 +341,7 @@ footer {
 
 .download {
   text-decoration: none;
-  background-color: tomato;
+  background-color: #30336b;
   height: 40px;
   padding-inline-end: 10px;
   padding-inline-start: 10px;
@@ -344,7 +356,7 @@ footer {
 }
 
 .btn-save {
-  background-color: tomato;
+  background-color: #30336b;
   color: aliceblue;
   font-weight: bold;
   cursor: pointer;
@@ -352,7 +364,7 @@ footer {
 }
 
 .btn-share {
-  background-color: tomato;
+  background-color: #30336b;
   color: aliceblue;
   font-weight: bold;
   cursor: pointer;
@@ -381,7 +393,7 @@ footer {
 
 .save-sec button:hover,
 .save-sec a:hover {
-  background-color: rgb(212, 48, 19);
+  background-color: #1b1c30;
 }
 
 .key-words li {
@@ -419,7 +431,7 @@ footer {
 }
 
 .file-input:hover {
-  color: salmon;
+  color: #009688;
 }
 
 input[type='color'] {
@@ -467,6 +479,13 @@ input[type='color']::-webkit-color-swatch {
   list-style: none;
 }
 
+@media (max-width: 900px) {
+  .search-sec {
+    margin-inline-end: 20%;
+    margin-inline-start: 20%;
+  }
+}
+
 @media (max-width: 740px) {
   .nav {
     display: none;
@@ -494,7 +513,7 @@ input[type='color']::-webkit-color-swatch {
     justify-content: center;
     align-items: center;
     /* margin: 0 auto; */
-    margin-top: 50px;
+    margin-top: 30px;
   }
 
   .file-input {
@@ -571,5 +590,6 @@ input[type='color']::-webkit-color-swatch {
 
   .my-canvas {
     width: 310px;
+    height: 300px;
   }
 }
